@@ -9,9 +9,9 @@ public abstract class Empleado {
 	private String direccion;
 	private String estadoCivil;
 	private LocalDate fechaDeNacimiento;
-	private int sueldoBasico;
+	private float sueldoBasico;
 	
-	public Empleado(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, int sueldoBasico) {
+	public Empleado(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, float sueldoBasico) {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.estadoCivil = estadoCivil;
@@ -41,12 +41,13 @@ public abstract class Empleado {
 		conceptos.put("Sueldo Bruto",                       this.sueldoBruto());
 		
 		conceptos.put("Sueldo Neto",                        this.sueldoNeto());
-		conceptos.put("Sueldo Básico",                      (float) this.sueldoBasico);
+		conceptos.put("Sueldo Básico",                      this.sueldoBasico);
 		conceptos.put("Sueldo Extra Dependiendo Categoria", this.extraDependiendoCategoria());
 		
 		conceptos.put("Retenciones",                        this.retenciones());
 		conceptos.put("Retención Obra Social",              this.retencionObraSocial());
 		conceptos.put("Aportes Jubilatorios",               this.retencionAportesJubilatorios());
+		
 		return conceptos;
 	}
 	
@@ -70,9 +71,15 @@ public abstract class Empleado {
 		return this.sueldoBruto() * 0.10f;
 	}
 	
-	public abstract float retencionAportesJubilatorios();
+	public float retencionAportesJubilatorios(){
+		return 0;
+	}
 	
-	public abstract float retencionExtraDeObraSocial();
+	public float retencionExtraDeObraSocial(){
+		return 0;
+	}
 	
-	public abstract float extraDependiendoCategoria();
+	public float extraDependiendoCategoria(){
+		return 0;
+	}
 }

@@ -5,7 +5,7 @@ public class EmpleadoTemporario extends Empleado {
 	private LocalDate fechaFinDesignacion;
 	private int cantidadHorasExtra;
 	
-	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, int sueldoBasico, LocalDate fechaFinDesignacion, int cantidadHorasExtra) {
+	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, float sueldoBasico, LocalDate fechaFinDesignacion, int cantidadHorasExtra) {
 		super(nombre, direccion, estadoCivil, fechaDeNacimiento, sueldoBasico);
 		this.fechaFinDesignacion = fechaFinDesignacion;
 		this.cantidadHorasExtra = cantidadHorasExtra;

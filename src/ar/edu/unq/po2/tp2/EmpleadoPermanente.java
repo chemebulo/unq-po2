@@ -6,7 +6,7 @@ public class EmpleadoPermanente extends Empleado {
 	private int cantidadHijos;
 	private int antiguedad;
 	
-	public EmpleadoPermanente(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, int sueldoBasico, int cantidadHijos, int antiguedad) {
+	public EmpleadoPermanente(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, float sueldoBasico, int cantidadHijos, int antiguedad) {
 		super(nombre, direccion, estadoCivil, fechaDeNacimiento, sueldoBasico);
 		this.cantidadHijos = cantidadHijos;
 		this.antiguedad = antiguedad;
