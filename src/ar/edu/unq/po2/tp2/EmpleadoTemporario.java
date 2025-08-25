@@ -5,23 +5,36 @@ public class EmpleadoTemporario extends Empleado {
 	private LocalDate fechaFinDesignacion;
 	private int cantidadHorasExtra;
 	
-	@Override
-	public float retenciones() {
-		return 0;
+	public EmpleadoTemporario(String nombre, String direccion, String estadoCivil, LocalDate fechaDeNacimiento, int sueldoBasico, LocalDate fechaFinDesignacion, int cantidadHorasExtra) {
+		super(nombre, direccion, estadoCivil, fechaDeNacimiento, sueldoBasico);
+		this.fechaFinDesignacion = fechaFinDesignacion;
+		this.cantidadHorasExtra = cantidadHorasExtra;
 	}
 
 	@Override
 	public float retencionAportesJubilatorios() {
-		return 0;
+		return this.importePorcentualAportes() + this.importePorHoras();
+	}
+	
+	private float importePorcentualAportes() {
+		return this.sueldoBruto() * 0.10f;
+	}
+	
+	private float importePorHoras() {
+		return this.cantidadHorasExtra * 5f;
+	}
+	
+	@Override
+	public float retencionExtraDeObraSocial() {
+		if(this.edad() > 50) {
+			return 25f;
+		} else {
+			return 0f;
+		}
 	}
 
 	@Override
-	public float retencionObraSocial() {
-		return 0;
-	}
-
-	@Override
-	public float sueldoBruto() {
-		return 0;
+	public float extraDependiendoCategoria() {
+		return this.cantidadHorasExtra * 40f;
 	}
 }
