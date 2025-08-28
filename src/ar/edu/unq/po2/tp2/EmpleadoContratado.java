@@ -12,7 +12,15 @@ public class EmpleadoContratado extends Empleado {
 		this.numeroDeContrato = numeroDeContrato;
 		this.medioDePago = medioDePago;
 	}
-
+	
+	public int getNumeroDeContrato() {
+		return numeroDeContrato;
+	}
+	
+	public String getMedioDePago() {
+		return medioDePago;
+	}
+	
 	private float gastosAdministrativosContractuales() {
 		return 50f;
 	}
@@ -25,7 +33,9 @@ public class EmpleadoContratado extends Empleado {
 	@Override
 	public Map<String, Float> desgloceConceptos(){
 		Map<String, Float> conceptos = super.desgloceConceptos();
+		
 		conceptos.put("Gastos Administrativos Contractuales", this.gastosAdministrativosContractuales());
+		
 		return conceptos;
 	}
 

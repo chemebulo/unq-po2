@@ -11,6 +11,14 @@ public class EmpleadoTemporario extends Empleado {
 		this.fechaFinDesignacion = fechaFinDesignacion;
 		this.cantidadHorasExtra = cantidadHorasExtra;
 	}
+	
+	public LocalDate getfechaFinDesignacion() {
+		return fechaFinDesignacion;
+	}
+	
+	public int getCantidadHorasExtra() {
+		return cantidadHorasExtra;
+	}
 
 	private float retencionPorcentualAportes() {
 		return this.sueldoBruto() * 0.10f;

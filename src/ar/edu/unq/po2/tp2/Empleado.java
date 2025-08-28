@@ -27,8 +27,16 @@ public abstract class Empleado {
 		return this.direccion;
 	}
 	
-	protected String getEstadoCivil() {
+	public String getEstadoCivil() {
 		return estadoCivil;
+	}
+	
+	public LocalDate getFechaDeNacimiento() {
+		return fechaDeNacimiento;
+	}
+	
+	public float getSueldoBasico() {
+		return sueldoBasico;
 	}
 	
 	public int edad() {
