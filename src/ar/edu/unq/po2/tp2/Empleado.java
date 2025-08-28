@@ -38,15 +38,14 @@ public abstract class Empleado {
 	
 	public Map<String, Float> desgloceConceptos(){
 		Map<String, Float> conceptos = new LinkedHashMap<>();
-		conceptos.put("Sueldo Bruto",                       this.sueldoBruto());
-		
 		conceptos.put("Sueldo Neto",                        this.sueldoNeto());
-		conceptos.put("Sueldo Básico",                      this.sueldoBasico);
-		conceptos.put("Sueldo Extra Dependiendo Categoria", this.extraDependiendoCategoria());
 		
 		conceptos.put("Retenciones",                        this.retenciones());
 		conceptos.put("Retención Obra Social",              this.retencionObraSocial());
 		conceptos.put("Aportes Jubilatorios",               this.retencionAportesJubilatorios());
+
+		conceptos.put("Sueldo Bruto",                       this.sueldoBruto());
+		conceptos.put("Sueldo Básico",                      this.sueldoBasico);
 		
 		return conceptos;
 	}
@@ -56,7 +55,7 @@ public abstract class Empleado {
 	}
 	
 	public float sueldoBruto() {
-		return this.sueldoBasico + this.extraDependiendoCategoria();
+		return this.sueldoBasico;
 	}
 	
 	public float retenciones() {
@@ -71,15 +70,7 @@ public abstract class Empleado {
 		return this.sueldoBruto() * 0.10f;
 	}
 	
-	public float retencionAportesJubilatorios(){
-		return 0;
-	}
+	public abstract float retencionAportesJubilatorios();
 	
-	public float retencionExtraDeObraSocial(){
-		return 0;
-	}
-	
-	public float extraDependiendoCategoria(){
-		return 0;
-	}
+	public abstract float retencionExtraDeObraSocial();
 }

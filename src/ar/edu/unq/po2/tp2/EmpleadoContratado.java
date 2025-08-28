@@ -13,19 +13,29 @@ public class EmpleadoContratado extends Empleado {
 		this.medioDePago = medioDePago;
 	}
 
-	@Override
-	public float retenciones() {
-		return this.gastosAdministrativosContractuales();
-	}
-
 	private float gastosAdministrativosContractuales() {
 		return 50f;
 	}
 	
 	@Override
+	public float retenciones() {
+		return this.gastosAdministrativosContractuales();
+	}
+
+	@Override
 	public Map<String, Float> desgloceConceptos(){
 		Map<String, Float> conceptos = super.desgloceConceptos();
 		conceptos.put("Gastos Administrativos Contractuales", this.gastosAdministrativosContractuales());
 		return conceptos;
+	}
+
+	@Override
+	public float retencionAportesJubilatorios() {
+		return 0;
+	}
+
+	@Override
+	public float retencionExtraDeObraSocial() {
+		return 0;
 	}
 }

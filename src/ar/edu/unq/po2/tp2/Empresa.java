@@ -11,7 +11,6 @@ public class Empresa {
 	private List<Empleado> empleados;
 	private List<ReciboDeHaberes> recibos;
 
-	
 	public Empresa(String nuevoNombre, String nuevoCuit) {
 		this.nombre = nuevoNombre;
 		this.cuit = nuevoCuit;

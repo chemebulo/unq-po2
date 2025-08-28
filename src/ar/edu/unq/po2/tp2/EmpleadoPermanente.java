@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tp2;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 public class EmpleadoPermanente extends Empleado {
 	private int cantidadHijos;
@@ -33,6 +34,21 @@ public class EmpleadoPermanente extends Empleado {
 	}
 
 	@Override
+	public Map<String, Float> desgloceConceptos(){
+		Map<String, Float> conceptos = super.desgloceConceptos();
+		
+		conceptos.put("Sueldo Salario Familiar", this.salarioFamiliar());
+		conceptos.put("Sueldo Antiguedad",       this.importePorAntiguedad());
+		
+		return conceptos;
+	}
+	
+	@Override
+	public float sueldoBruto() {
+		return super.sueldoBruto() + this.salarioFamiliar() + this.importePorAntiguedad();
+	}
+	
+	@Override
 	public float retencionAportesJubilatorios() {
 		return this.sueldoBruto() * 0.15f;
 	}
@@ -40,10 +56,5 @@ public class EmpleadoPermanente extends Empleado {
 	@Override
 	public float retencionExtraDeObraSocial() {
 		return this.cantidadHijos * 20f;
-	}
-
-	@Override
-	public float extraDependiendoCategoria() {
-		return this.salarioFamiliar() + this.importePorAntiguedad();
 	}
 }

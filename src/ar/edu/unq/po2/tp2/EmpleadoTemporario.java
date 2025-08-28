@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tp2;
 import java.time.LocalDate;
+import java.util.Map;
 
 public class EmpleadoTemporario extends Empleado {
 	private LocalDate fechaFinDesignacion;
@@ -11,17 +12,35 @@ public class EmpleadoTemporario extends Empleado {
 		this.cantidadHorasExtra = cantidadHorasExtra;
 	}
 
-	@Override
-	public float retencionAportesJubilatorios() {
-		return this.importePorcentualAportes() + this.importePorHoras();
-	}
-	
-	private float importePorcentualAportes() {
+	private float retencionPorcentualAportes() {
 		return this.sueldoBruto() * 0.10f;
 	}
 	
-	private float importePorHoras() {
+	private float retencionPorHorasExtra() {
 		return this.cantidadHorasExtra * 5f;
+	}
+	
+	private float salarioPorHorasExtra() {
+		return this.cantidadHorasExtra * 40f;
+	}
+	
+	@Override
+	public Map<String, Float> desgloceConceptos(){
+		Map<String, Float> conceptos = super.desgloceConceptos();
+		
+		conceptos.put("Sueldo por Horas Extra", this.salarioPorHorasExtra());
+		
+		return conceptos;
+	}
+	
+	@Override
+	public float sueldoBruto() {
+		return super.sueldoBruto() + this.salarioPorHorasExtra();
+	}
+	
+	@Override
+	public float retencionAportesJubilatorios() {
+		return this.retencionPorcentualAportes() + this.retencionPorHorasExtra();
 	}
 	
 	@Override
@@ -31,10 +50,5 @@ public class EmpleadoTemporario extends Empleado {
 		} else {
 			return 0f;
 		}
-	}
-
-	@Override
-	public float extraDependiendoCategoria() {
-		return this.cantidadHorasExtra * 40f;
 	}
 }
