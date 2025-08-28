@@ -12,7 +12,7 @@ public class EmpleadoTemporario extends Empleado {
 		this.cantidadHorasExtra = cantidadHorasExtra;
 	}
 	
-	public LocalDate getfechaFinDesignacion() {
+	public LocalDate getFechaFinDesignacion() {
 		return fechaFinDesignacion;
 	}
 	

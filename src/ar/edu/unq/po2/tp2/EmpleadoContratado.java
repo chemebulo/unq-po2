@@ -1,6 +1,5 @@
 package ar.edu.unq.po2.tp2;
 import java.time.LocalDate;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class EmpleadoContratado extends Empleado {
