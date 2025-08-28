@@ -13,6 +13,14 @@ public class EmpleadoPermanente extends Empleado {
 		this.antiguedad = antiguedad;
 	}
 	
+	public int getCantidadHijos() {
+		return cantidadHijos;
+	}
+	
+	public int getAntiguedad() {
+		return antiguedad;
+	}
+	
 	public float salarioFamiliar() {
 		return this.importePorHijos() + this.importePorEstadoCivil();
 	}
