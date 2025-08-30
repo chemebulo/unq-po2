@@ -20,7 +20,7 @@ public class EmpleadoContratado extends Empleado {
 		return medioDePago;
 	}
 	
-	private float gastosAdministrativosContractuales() {
+	public float gastosAdministrativosContractuales() {
 		return 50f;
 	}
 	
@@ -40,11 +40,16 @@ public class EmpleadoContratado extends Empleado {
 
 	@Override
 	public float retencionAportesJubilatorios() {
-		return 0;
+		return 0f;
+	}
+	
+	@Override
+	public float retencionObraSocial() {
+		return 0f;
 	}
 
 	@Override
 	public float retencionExtraDeObraSocial() {
-		return 0;
+		return 0f;
 	}
 }

@@ -19,11 +19,11 @@ public class Empresa {
 	}
 	
 	public String getNombre() {
-		return this.nombre;
+		return nombre;
 	}
 	
 	public String getCuit() {
-		return this.cuit;
+		return cuit;
 	}
 	
 	public void liquidarSueldos() {

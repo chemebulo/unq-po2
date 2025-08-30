@@ -30,7 +30,7 @@ public class EmpleadoPermanente extends Empleado {
 	
 	private float importePorEstadoCivil() {
 		if("Casado".equalsIgnoreCase(this.getEstadoCivil())) {
-			return 150f;
+			return 100f;
 		} else {
 			return 0f;
 		}
