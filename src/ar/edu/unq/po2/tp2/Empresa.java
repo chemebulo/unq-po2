@@ -26,6 +26,14 @@ public class Empresa {
 		return cuit;
 	}
 	
+	public void añadirEmpleado(Empleado e) {
+		empleados.add(e);
+	}
+	
+	protected List<ReciboDeHaberes> getRecibos(){
+		return recibos;
+	}
+	
 	public void liquidarSueldos() {
 		LocalDate fechaHoy = LocalDate.now();
 		recibos = empleados.stream()

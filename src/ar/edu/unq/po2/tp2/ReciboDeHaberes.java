@@ -19,7 +19,18 @@ public class ReciboDeHaberes {
 		this.conceptos = conceptos;
 	}
 	
-	public Map<String, Float> getConceptos() {
-		return this.conceptos;
+	public void imprimirRecibo() {
+		System.out.println("=========================================");
+	    System.out.println("        RECIBO DE HABERES");
+	    System.out.println("=========================================");
+	    System.out.println("Empleado: " + this.nombreEmpleado);
+	    System.out.println("Dirección: " + this.direccion);
+	    System.out.println("Fecha emisión: " + this.fechaEmision);
+	    System.out.println("-----------------------------------------");
+	    System.out.println("CONCEPTOS:");
+	    this.conceptos.forEach((clave, valor) -> {
+	        System.out.println(" - " + clave + ": " + valor);
+	    });
+	    System.out.println("-----------------------------------------");
 	}
 }
