@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tp3;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Counter {
 	private ArrayList<Integer> numeros;
@@ -8,29 +9,29 @@ public class Counter {
 		this.numeros = new ArrayList<Integer>();
 	}
 	
-	public int getCantidadDePares() {
+	public int contarSi(Predicate<Integer> condicion) {
 		return (int) numeros.stream()
-							.filter(n -> this.esMultiploDe(n, 2))
+							.filter(condicion)
 							.count();
+	}
+	
+	public int getCantidadDePares() {
+		return this.contarSi(n -> this.esMultiploDe(n, 2));
 	}
 	
 	public int getCantidadDeImpares() {
-		return (int) numeros.stream()
-							.filter(n -> !this.esMultiploDe(n, 2))
-							.count();
+		return this.contarSi(n -> !this.esMultiploDe(n, 2));
 	}
 	
 	public int getCantidadDeMultiplosDe(int divisor) {
-		return (int) numeros.stream()
-							.filter(n -> this.esMultiploDe(n, divisor))
-							.count();
+		return this.contarSi(n -> this.esMultiploDe(n, divisor));
 	}
 	
 	public boolean esMultiploDe(int numero, int divisor) {
 		return numero % divisor == 0;
 	}
 	
-	public void addNumero(int numero) {
+	public void añadirNumero(int numero) {
 		numeros.add(numero);
 	}
 }

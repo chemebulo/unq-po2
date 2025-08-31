@@ -8,7 +8,6 @@ class CounterTestCase {
 	 
 	 /**
 	  * Crea un escenario de test básico, que consiste en un contador con 10 enteros.
-	  *
 	  * @throws Exception
 	  */
 	 
@@ -19,16 +18,16 @@ class CounterTestCase {
 		 counter = new Counter();
 		 
 		 //Se agregan los numeros. Un solo par y nueve impares.
-		 counter.addNumero(1);
-		 counter.addNumero(3);
-		 counter.addNumero(5);
-		 counter.addNumero(7);
-		 counter.addNumero(9);
-		 counter.addNumero(1);
-		 counter.addNumero(1);
-		 counter.addNumero(1);
-		 counter.addNumero(1);
-		 counter.addNumero(4);
+		 counter.añadirNumero(1);
+		 counter.añadirNumero(3);
+		 counter.añadirNumero(5);
+		 counter.añadirNumero(7);
+		 counter.añadirNumero(9);
+		 counter.añadirNumero(1);
+		 counter.añadirNumero(1);
+		 counter.añadirNumero(1);
+		 counter.añadirNumero(1);
+		 counter.añadirNumero(4);
 	 }
 	 
 	 /**
@@ -36,9 +35,7 @@ class CounterTestCase {
 	  */
 	 
 	 @Test
-	 public void testEvenNumbers() {
-		 
-		 // I check the amount is the expected one
+	 public void testNumerosPares() {
 		 assertEquals(counter.getCantidadDePares(), 1);
 	 }
 	 
@@ -47,9 +44,16 @@ class CounterTestCase {
 	  */
 	 
 	 @Test
-	 public void testOddNumbers() {
-		 
-		 // I check the amount is the expected one
+	 public void testNumerosImpares() {
 		 assertEquals(counter.getCantidadDeImpares(), 9);
+	 }
+	 
+	 /**
+	  * Verifica la cantidad de multiplos del cierto numero.
+	  */
+	 
+	 @Test
+	 public void testMultiplosDeUnNumero() {
+		 assertEquals(counter.getCantidadDeMultiplosDe(3), 2);
 	 }
 }
