@@ -28,6 +28,7 @@ class CounterTestCase {
 		 counter.añadirNumero(1);
 		 counter.añadirNumero(1);
 		 counter.añadirNumero(4);
+		 counter.añadirNumero(24);
 	 }
 	 
 	 /**
@@ -36,7 +37,7 @@ class CounterTestCase {
 	 
 	 @Test
 	 public void testNumerosPares() {
-		 assertEquals(counter.getCantidadDePares(), 1);
+		 assertEquals(counter.getCantidadDePares(), 2);
 	 }
 	 
 	 /**
@@ -54,6 +55,15 @@ class CounterTestCase {
 	 
 	 @Test
 	 public void testMultiplosDeUnNumero() {
-		 assertEquals(counter.getCantidadDeMultiplosDe(3), 2);
+		 assertEquals(counter.getCantidadDeMultiplosDe(3), 3);
+	 }
+	 
+	 /**
+	  * Verifica que devuelva el número con más numeros pares del arreglo.
+	  */
+	 
+	 @Test
+	 public void testNumeroConMasPares() {
+		 assertEquals(counter.getNumeroConMasPares(), 24);
 	 }
 }

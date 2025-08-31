@@ -1,5 +1,6 @@
 package ar.edu.unq.po2.tp3;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Counter {
@@ -7,6 +8,10 @@ public class Counter {
 	
 	public Counter() {
 		this.numeros = new ArrayList<Integer>();
+	}
+	
+	public void añadirNumero(int numero) {
+		numeros.add(numero);
 	}
 	
 	public int contarSi(Predicate<Integer> condicion) {
@@ -31,7 +36,26 @@ public class Counter {
 		return numero % divisor == 0;
 	}
 	
-	public void añadirNumero(int numero) {
-		numeros.add(numero);
+	public int getNumeroConMasPares() {
+		return numeros.stream()
+					  .max(Comparator.comparingInt(n -> this.cantidadDePares(n)))
+					  .orElseThrow(() -> new IllegalStateException("La lista está vacía."));
+	}
+
+	private int cantidadDePares(int n) {
+		int numero = Math.abs(n);
+		int contador = 0;
+		
+		if(numero == 0) contador++;
+
+		while(numero > 0) {
+			int digitoActual = numero % 10;
+			
+			if(digitoActual % 2 == 0) contador++;
+			
+			numero /= 10;
+		}
+		
+		return contador;
 	}
 }
