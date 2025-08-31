@@ -58,4 +58,27 @@ public class Counter {
 		
 		return contador;
 	}
+	
+	public int getMultiploMasAltoEntreY(int x, int y) {
+		int multiploMasAlto = -1;
+		
+		if(x > 0 && y > 0) {
+			int mcm = (x * y) / this.mcd(x, y);
+			int max = (1000 / mcm) * mcm;
+			if(max > 0) multiploMasAlto = max;
+		}
+		
+		return multiploMasAlto;
+	}
+	
+	private int mcd(int x, int y) {
+		
+		while(y != 0) {
+			int temp = y;
+			y = x % y;
+			x = temp;
+		}
+		
+		return x;
+	}
 }

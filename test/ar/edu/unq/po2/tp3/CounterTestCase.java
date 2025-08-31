@@ -66,4 +66,15 @@ class CounterTestCase {
 	 public void testNumeroConMasPares() {
 		 assertEquals(counter.getNumeroConMasPares(), 24);
 	 }
+	 
+	 /**
+	  * Verifica que devuelva el múltiplo más alto del arreglo entre los dos numeros dados.
+	  */
+	 
+	 @Test
+	 public void testMultiploMasAltoEntreY() {
+		 assertEquals(counter.getMultiploMasAltoEntreY(3, 9), 999);
+		 assertEquals(counter.getMultiploMasAltoEntreY(2000, 3), (-1));
+		 assertEquals(counter.getMultiploMasAltoEntreY(7, 5), 980);
+	 }
 }
