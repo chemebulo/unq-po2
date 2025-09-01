@@ -16,7 +16,7 @@ public class CuadradoTestCase {
 	  */
 	 
 	 @Test
-	 public void testFuncionamientoRectangulo() {
+	 public void testFuncionamientoCuadrado() {
 		 assertEquals(cuadrado.getArea(), 25);
 		 assertEquals(cuadrado.getPerimetro(), 20);
 	 }
