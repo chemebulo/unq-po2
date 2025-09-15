@@ -4,15 +4,31 @@ import java.util.List;
 
 public class CajaMercadoCentral implements Caja {
 	private List<Producto> productos;
+	private Agencia agencia;
 	
-	public CajaMercadoCentral() {
+	public CajaMercadoCentral(Agencia agencia) {
 		this.productos = new ArrayList<Producto>();
+		this.agencia = agencia;
 	}
 	
-	public void registrar(Producto producto) {
+	@Override
+	public void registrar(Registrable item) {
+		if(item instanceof Producto) {
+			this.registrarProducto((Producto) item);
+		} 
+		else if (item instanceof Factura) {
+			this.registrarFactura((Factura) item);
+		}
+	}
+	
+	private void registrarProducto(Producto producto) {
 		this.validarRegistro(producto);
 		productos.add(producto);
 		producto.decrementarStock();
+	}
+	
+	private void registrarFactura(Factura factura) {
+		agencia.registrarPago(factura);
 	}
 	
 	private void validarRegistro(Producto producto) {
@@ -21,31 +37,10 @@ public class CajaMercadoCentral implements Caja {
 		}
 	}
 	
+	@Override
 	public float montoTotalAPagar() {
 		return (float) productos.stream()
-						        .mapToDouble(producto -> this.precioConDescuentoSiAplica(producto))
+						        .mapToDouble(producto -> producto.montoTotal())
 						        .sum();
-	}
-	
-	private float precioConDescuentoSiAplica(Producto producto) {
-		float precioActual = producto.getPrecioBase();
-		
-		if(this.aplicaParaElDescuento(producto)) {
-			precioActual = this.precioConDescuento(precioActual);
-		}
-		
-		return precioActual;
-	}
-	
-	private boolean aplicaParaElDescuento(Producto producto) {
-		return producto.esDeCooperativa();
-	}
-	
-	private float precioConDescuento(float precio) {
-		return precio * this.descuento();
-	}
-	
-	private float descuento() {
-		return 0.9f;
 	}
 }

@@ -4,21 +4,29 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CajaMercadoCentralTest {
+	private Agencia arca;
 	private Caja caja1;
 	private Caja caja2;
-	private Producto arroz;
-	private Producto fideos;
-	private Producto polenta;
-	private Producto leche;
+	private Registrable arroz;
+	private Registrable fideos;
+	private Registrable polenta;
+	private Registrable leche;
+	private Registrable servicioEnero;
+	private Registrable impuestoEnero;
+	
+	
 	
 	@BeforeEach
 	public void setUp() {
-		caja1 = new CajaMercadoCentral();
-		caja2 = new CajaMercadoCentral();
+		arca  = new Arca();
+		caja1 = new CajaMercadoCentral(arca);
+		caja2 = new CajaMercadoCentral(arca);
 		arroz   = new ProductoCooperativa(500f, 5);
 		polenta = new ProductoCooperativa(200f, 4);
 		fideos  = new ProductoEmpresa(250f, 2);
 		leche   = new ProductoEmpresa(300f, 10);
+		servicioEnero = new Servicio("Enero", 10f, 20);
+		impuestoEnero = new Impuesto("Enero", 30f);
 	}
 	
 	@Test
@@ -40,5 +48,10 @@ class CajaMercadoCentralTest {
 		
 		assertEquals(1130f, caja1.montoTotalAPagar());
 		assertEquals(780f, caja2.montoTotalAPagar());
+		
+		caja1.registrar(servicioEnero);
+		caja2.registrar(impuestoEnero);
+		
+		assertEquals(2, arca.getPagosRegistrados().size());
 	}
 }

@@ -9,19 +9,23 @@ public class ProductoEmpresa implements Producto {
 		this.cantidadStock = cantidadStock;
 	}
 	
+	@Override
 	public float getPrecioBase(){
 		return precioBase;
 	}
 	
+	@Override
 	public boolean hayStock(){
 		return cantidadStock > 0;
 	}
 	
+	@Override
 	public void decrementarStock(){
 		cantidadStock--;
 	}
 	
-	public boolean esDeCooperativa(){
-		return false;
+	@Override
+	public float montoTotal() {
+		return this.getPrecioBase();
 	}
 }
