@@ -1,10 +1,10 @@
-package ar.edu.unq.po2.tp5;
+package ar.edu.unq.po2.tp5.caja_mercado_central_v2;
 
-public class ProductoCooperativa implements Producto {
+public abstract class ProductoBase implements Producto {
 	private float precioBase;
 	private int cantidadStock;
 	
-	public ProductoCooperativa(float precioBase, int cantidadStock) {
+	public ProductoBase(float precioBase, int cantidadStock) {
 		this.precioBase = precioBase;
 		this.cantidadStock = cantidadStock;
 	}
@@ -25,11 +25,7 @@ public class ProductoCooperativa implements Producto {
 	}
 	
 	@Override
-	public float montoTotal() {
-		return this.getPrecioBase() * this.descuento();
-	}
-	
-	private float descuento() {
-		return 0.9f;
+	public void registrarse(Caja caja){
+		caja.registrarProducto(this);;
 	}
 }

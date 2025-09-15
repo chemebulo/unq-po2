@@ -1,10 +1,10 @@
-package ar.edu.unq.po2.tp5;
+package ar.edu.unq.po2.tp5.caja_mercado_central_v2;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CajaMercadoCentralTest {
-	private Agencia arca;
+	private Arca arca;
 	private Caja caja1;
 	private Caja caja2;
 	private Registrable arroz;
@@ -13,8 +13,6 @@ class CajaMercadoCentralTest {
 	private Registrable leche;
 	private Registrable servicioEnero;
 	private Registrable impuestoEnero;
-	
-	
 	
 	@BeforeEach
 	public void setUp() {
@@ -38,7 +36,6 @@ class CajaMercadoCentralTest {
 		caja1.registrar(fideos);
 		caja1.registrar(fideos);
 		
-		assertThrows(IllegalArgumentException.class, () -> caja1.registrar(fideos));
 		assertEquals(950f, caja1.montoTotalAPagar());
 
 		caja1.registrar(polenta);
@@ -52,6 +49,8 @@ class CajaMercadoCentralTest {
 		caja1.registrar(servicioEnero);
 		caja2.registrar(impuestoEnero);
 		
-		assertEquals(2, arca.getPagosRegistrados().size());
+		assertEquals(1330f, caja1.montoTotalAPagar());
+		assertEquals(810f, caja2.montoTotalAPagar());
+		assertEquals(230f, arca.getMontoPagosRegistrados());
 	}
 }

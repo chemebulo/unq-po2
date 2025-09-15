@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp5;
+package ar.edu.unq.po2.tp5.caja_mercado_central_v1;
 import java.util.ArrayList;
 import java.util.List;
 

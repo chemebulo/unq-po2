@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp5;
+package ar.edu.unq.po2.tp5.caja_mercado_central_v1;
 
 public class Servicio implements Factura {
 	private String periodo;

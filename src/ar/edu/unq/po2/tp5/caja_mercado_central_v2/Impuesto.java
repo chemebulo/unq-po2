@@ -1,17 +1,11 @@
-package ar.edu.unq.po2.tp5;
+package ar.edu.unq.po2.tp5.caja_mercado_central_v2;
 
-public class Impuesto implements Factura {
-	private String periodo;
+public class Impuesto extends FacturaBase {
 	private float tasaDelServicio;
 	
 	public Impuesto(String periodo, float tasaDelServicio) {
-		this.periodo = periodo;
+		super(periodo);
 		this.tasaDelServicio = tasaDelServicio;
-	}
-	
-	@Override
-	public String getPeriodo() {
-		return periodo;
 	}
 	
 	@Override
