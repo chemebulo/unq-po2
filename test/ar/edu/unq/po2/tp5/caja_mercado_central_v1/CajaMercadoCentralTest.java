@@ -3,16 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Agencia;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Arca;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Caja;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.CajaMercadoCentral;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Impuesto;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.ProductoCooperativa;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.ProductoEmpresa;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Registrable;
-import ar.edu.unq.po2.tp5.caja_mercado_central_v1.Servicio;
-
 class CajaMercadoCentralTest {
 	private Agencia arca;
 	private Caja caja1;
