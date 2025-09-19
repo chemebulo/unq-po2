@@ -26,6 +26,6 @@ public abstract class ProductoBase implements Producto {
 	
 	@Override
 	public void registrarse(Caja caja){
-		caja.registrarProducto(this);;
+		caja.registrarProducto(this);
 	}
 }
