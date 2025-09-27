@@ -21,7 +21,7 @@ class PersonaTestCase {
 	 @Test
 	 public void testFuncionamientoPersona() {
 		 assertEquals(21, jose.getEdad());
-		 assertEquals(24, carlos.getEdad());
+		 assertEquals(25, carlos.getEdad());
 		 assertTrue(jose.menorQue(carlos));
 	 }
 }

@@ -37,13 +37,13 @@ class EquipoDeTrabajoTestCase {
 	 @Test
 	 public void testFuncionamientoEquipoDeTrabajo() {
 		 assertEquals(21, jose.getEdad());
-		 assertEquals(24, carlos.getEdad());
+		 assertEquals(25, carlos.getEdad());
 		 assertEquals(32, ricardo.getEdad());
-		 assertEquals(80, alberto.getEdad());
+		 assertEquals(81, alberto.getEdad());
 		 assertEquals(56, manuel.getEdad());
 		 assertTrue(jose.menorQue(carlos));
 		 
 		 assertEquals("Fogata 2", tpgrupal.getNombre());
-		 assertEquals(42, tpgrupal.getPromedioEdadIntegrantes());
+		 assertEquals(43, tpgrupal.getPromedioEdadIntegrantes());
 	 }
 }

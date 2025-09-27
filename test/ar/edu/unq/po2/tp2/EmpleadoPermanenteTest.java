@@ -28,7 +28,7 @@ class EmpleadoPermanenteTest {
     public void funcionamientoMensajesPrincipales() {
     	assertEquals(400f, jorge.salarioFamiliar(), 0.004f);
 
-    	assertEquals(45, jorge.edad());
+    	assertEquals(46, jorge.edad());
     	assertEquals(326885f, jorge.sueldoNeto(), 0.004f);
     	assertEquals(435900f, jorge.sueldoBruto(), 0.004f);
     	

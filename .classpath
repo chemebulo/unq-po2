@@ -8,5 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/Chemebulo/Desktop/G/U/CICLO INICIAL/PROGRAMACION CON OBJETOS II/REPOSITORIO/mockito-core-5.20.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
