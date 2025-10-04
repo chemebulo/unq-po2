@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp9;
+package ar.edu.unq.po2.tp9.maquina_videojuegos;
 
 public class EstadoMVConDosFichas extends EstadoMV {
 

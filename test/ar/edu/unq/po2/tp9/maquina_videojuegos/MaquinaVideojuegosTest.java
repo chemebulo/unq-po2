@@ -1,9 +1,11 @@
-package ar.edu.unq.po2.tp9;
+package ar.edu.unq.po2.tp9.maquina_videojuegos;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.tp9.maquina_videojuegos.MaquinaVideojuegos;
 
 class MaquinaVideojuegosTest {
 	private MaquinaVideojuegos maquinaVideojuegos;
