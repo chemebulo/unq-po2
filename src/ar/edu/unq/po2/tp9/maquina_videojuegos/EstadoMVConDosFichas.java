@@ -6,9 +6,9 @@ public class EstadoMVConDosFichas extends EstadoMV {
 	public void iniciarJuego() {
 		System.out.println("El juego se inició para dos jugadores.");
 	}
-
+	
 	@Override
-	public EstadoMV estadoAlIngresarFicha() {
-		return new EstadoMVSinFicha();
+	public void ingresarFicha(MaquinaVideojuegos maquinaVideojuegos) {
+		maquinaVideojuegos.setEstado(new EstadoMVSinFicha());
 	}
 }

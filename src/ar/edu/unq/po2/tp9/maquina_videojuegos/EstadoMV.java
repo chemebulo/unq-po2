@@ -4,9 +4,9 @@ public abstract class EstadoMV {
 
 	public abstract void iniciarJuego();
 	
-	public abstract EstadoMV estadoAlIngresarFicha();
+	public abstract void ingresarFicha(MaquinaVideojuegos maquinaVideojuegos);
 	
-	public EstadoMV estadoAlTerminarJuego() {
-		return new EstadoMVSinFicha();
+	public void terminarJuego(MaquinaVideojuegos maquinaVideojuegos) {
+		maquinaVideojuegos.setEstado(new EstadoMVSinFicha());
 	}
 }

@@ -8,7 +8,7 @@ public class EstadoMVSinFicha extends EstadoMV {
 	}
 
 	@Override
-	public EstadoMV estadoAlIngresarFicha() {
-		return new EstadoMVConUnaFicha();
+	public void ingresarFicha(MaquinaVideojuegos maquinaVideojuegos) {
+		maquinaVideojuegos.setEstado(new EstadoMVConUnaFicha());
 	}
 }

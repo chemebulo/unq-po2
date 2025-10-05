@@ -7,15 +7,19 @@ public class MaquinaVideojuegos {
 		this.estado = new EstadoMVSinFicha();
 	}
 	
+	public void setEstado(EstadoMV estado) {
+		this.estado = estado;
+	}
+	
 	public void iniciarJuego() {
 		estado.iniciarJuego();
 	}
 	
 	public void ingresarFicha() {
-		estado = estado.estadoAlIngresarFicha();
+		estado.ingresarFicha(this);
 	}
 	
 	public void terminarJuego() {
-		estado = estado.estadoAlTerminarJuego();
+		estado.terminarJuego(this);
 	}
 }
