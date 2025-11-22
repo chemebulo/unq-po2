@@ -7,9 +7,9 @@ public class ArticuloAcademico {
 	private List<Autor> autores;
 	private String tipoDeArticulo;
 	private String lugarDePublicacion;
-	private String palabrasClave;
+	private List<String> palabrasClave;
 	
-	public ArticuloAcademico(String titulo, List<Autor> autores, String tipoDeArticulo, String lugarDePublicacion, String palabrasClave) {
+	public ArticuloAcademico(String titulo, List<Autor> autores, String tipoDeArticulo, String lugarDePublicacion, List<String> palabrasClave) {
 		this.titulo = titulo;
 		this.autores = autores;
 		this.tipoDeArticulo = tipoDeArticulo;
@@ -33,7 +33,7 @@ public class ArticuloAcademico {
 		return lugarDePublicacion;
 	}
 
-	public String getPalabrasClave() {
+	public List<String> getPalabrasClave() {
 		return palabrasClave;
 	}
 	

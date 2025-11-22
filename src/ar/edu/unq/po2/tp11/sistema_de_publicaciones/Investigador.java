@@ -18,4 +18,8 @@ public class Investigador implements Observer {
 			articulosDeInteres.add(articulo);
 		}
 	}
+	
+	public List<ArticuloAcademico> articulosDeInteres(){
+		return new ArrayList<ArticuloAcademico>(articulosDeInteres);
+	}
 }

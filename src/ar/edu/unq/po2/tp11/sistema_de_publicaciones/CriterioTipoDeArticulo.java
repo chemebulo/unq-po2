@@ -9,6 +9,6 @@ public class CriterioTipoDeArticulo implements Criterio {
 	
 	@Override
 	public boolean cumple(ArticuloAcademico articulo) {
-		return articulo.getTipoDeArticulo() == tipoDeArticulo;
+		return articulo.getTipoDeArticulo().equals(tipoDeArticulo);
 	}
 }

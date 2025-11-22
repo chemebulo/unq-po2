@@ -9,6 +9,6 @@ public class CriterioLugarDePublicacion implements Criterio {
 	
 	@Override
 	public boolean cumple(ArticuloAcademico articulo) {
-		return articulo.getLugarDePublicacion() == lugarDePublicacion;
+		return articulo.getLugarDePublicacion().equals(lugarDePublicacion);
 	}
 }
