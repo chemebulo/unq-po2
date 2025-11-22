@@ -1,14 +1,16 @@
 package ar.edu.unq.po2.tp11.sistema_de_publicaciones;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Test;
 
 class AutorTest {
-
+	private Autor autor;
+	
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void funcionamientoGeneral() {
+		this.autor = new Autor("Carlos Rodriguez", "Universidad de Quilmes");
+		assertEquals("Carlos Rodriguez", autor.getNombre());
+		assertEquals("Universidad de Quilmes", autor.getFiliacion());
 	}
-
 }

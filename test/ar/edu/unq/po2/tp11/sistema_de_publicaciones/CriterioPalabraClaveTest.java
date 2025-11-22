@@ -8,8 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CriterioLugarDePublicacionTest {
-	private CriterioLugarDePublicacion criterio;
+class CriterioPalabraClaveTest {
+	private CriterioPalabraClave criterio;
 	private ArticuloAcademico articulo;
 	private Autor autor;
 	private List<String> palabrasClave;
@@ -17,7 +17,7 @@ class CriterioLugarDePublicacionTest {
 	
 	@BeforeEach
 	void setUp() {
-		this.criterio = new CriterioLugarDePublicacion("UNQ");
+		this.criterio = new CriterioPalabraClave("Tecnologia");
 		
 		this.autor = new Autor("Carlos Rodriguez", "Universidad Nacional de Quilmes");
 		this.autores = new ArrayList<Autor>();

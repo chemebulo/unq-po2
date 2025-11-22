@@ -10,5 +10,4 @@ class SistemaDePublicacionesTest {
 	void test() {
 		fail("Not yet implemented");
 	}
-
 }
