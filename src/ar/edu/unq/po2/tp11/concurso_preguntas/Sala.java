@@ -14,7 +14,15 @@ public class Sala extends EstadoSistemaPreguntas {
 	
 	private void empezarPartidaSiEsPosible() {
 		if(this.getSistema().listoParaEmpezar()) {
+			this.notificarInicio();
 			this.pasarSiguienteEstado();
+		}
+	}
+	
+	@Override
+	public void notificarInicio() {
+		for(ObserverJugador jugador : this.getSistema().getJugadores()) {
+			jugador.notificarInicio(this.getSistema());
 		}
 	}
 
@@ -26,6 +34,5 @@ public class Sala extends EstadoSistemaPreguntas {
 	@Override
 	public void pasarSiguienteEstado() {
 		this.getSistema().setEstado(new Progreso(this.getSistema()));
-		this.getSistema().notificarInicio();
 	}
 }

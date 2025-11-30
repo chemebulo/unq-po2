@@ -15,13 +15,6 @@ public class Progreso extends EstadoSistemaPreguntas {
 	}
 
 	@Override
-	public void notificarInicio() {
-		for(ObserverJugador jugador : this.getSistema().getJugadores()) {
-			jugador.notificarInicio(this.getSistema().getPreguntas(), this.getSistema());
-		}
-	}
-
-	@Override
 	public void registrarRespuesta(String respuesta, int numeroPregunta, ObserverJugador jugador) {
 		if(this.esRespuestaCorrecta(respuesta, numeroPregunta)) {
 			jugador.notificarRespuestaCorrecta(numeroPregunta);
@@ -54,7 +47,13 @@ public class Progreso extends EstadoSistemaPreguntas {
 	
 	@Override
 	public void notificarGanador(ObserverJugador jugador) {
+		List<ObserverJugador> jugadoresANotificar = new ArrayList<ObserverJugador>(this.getSistema().getJugadores());
+		jugadoresANotificar.remove(jugador);
+		
+		for(ObserverJugador j : jugadoresANotificar) {
+			j.notificarGanador(jugador);
+		}
+		
 		this.pasarSiguienteEstado();
-		this.getSistema().notificarGanador(jugador);
 	}
 }

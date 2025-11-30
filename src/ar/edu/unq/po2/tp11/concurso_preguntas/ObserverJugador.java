@@ -1,15 +1,13 @@
 package ar.edu.unq.po2.tp11.concurso_preguntas;
 
-import java.util.List;
-
 public interface ObserverJugador {
 	public String getNombre();
 	
 	public boolean tienePreguntasPorResponder();
 	
-	public void notificarInicio(List<Pregunta> preguntas, SistemaPreguntas sistema);
+	public void notificarInicio(SistemaPreguntas sistema);
 	
-	public void notificarRespuestaCorrecta(int numeroPregunta);
+	public void notificarRespuestaCorrecta(Integer numeroPregunta);
 	
 	public void notificarRespuestaIncorrecta(int numeroPregunta);
 	

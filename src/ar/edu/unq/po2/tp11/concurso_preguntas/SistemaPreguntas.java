@@ -46,6 +46,10 @@ public class SistemaPreguntas {
 		estadoActual.notificarGanador(jugador);
 	}
 	
+	public void reiniciar() {
+		estadoActual.reiniciarPartida();
+	}
+	
 	public boolean listoParaEmpezar() {
 		return jugadores.size() == 5;
 	}

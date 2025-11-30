@@ -24,7 +24,7 @@ public abstract class EstadoSistemaPreguntas {
 	}
 
 	public void notificarInicio() {
-		System.out.println("No puede iniciarse la partida porque no hay jugadores suficientes o la partida ya finalizó.");
+		System.out.println("No puede iniciar una partida en progreso o finalizada.");
 	}
 	
 	public void notificarJugadoresRespuestaCorrecta(int numeroPregunta, ObserverJugador jugador) {
@@ -32,8 +32,12 @@ public abstract class EstadoSistemaPreguntas {
 	}
 	
 	public void notificarGanador(ObserverJugador jugador) {
-		System.out.println(jugador.getNombre() + ", no se puede notificar un ganador en una partida que no finalizó.");
+		System.out.println(jugador.getNombre() + ", no se puede notificar un ganador en una partida que no inició o no finalizó.");
 	}
 
+	public void reiniciarPartida() {
+		System.out.println("No se puede reiniciar una partida que no inició o se encuentra en progreso.");
+	}
+	
 	public abstract void pasarSiguienteEstado();
 }

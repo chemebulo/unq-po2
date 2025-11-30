@@ -1,10 +1,11 @@
 package ar.edu.unq.po2.tp11.concurso_preguntas;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class JugadorConcurso implements ObserverJugador {
-	private List<Pregunta> preguntasPorResponder;
+	private Set<Integer> preguntasPorResponder;
 	private SistemaPreguntas sistemaActual;
 	private String nombre;
 	
@@ -20,17 +21,21 @@ public class JugadorConcurso implements ObserverJugador {
 	}
 	
 	@Override
-	public void notificarInicio(List<Pregunta> preguntas, SistemaPreguntas sistema) {
-		this.preguntasPorResponder = new ArrayList<Pregunta>(preguntas);
+	public void notificarInicio(SistemaPreguntas sistema) {
+		this.preguntasPorResponder = new HashSet<Integer>(List.of(0,1,2,3,4));
 		this.sistemaActual = sistema;
 	}
 	
 	public void registrarRespuesta(String respuesta, int numeroPregunta) {
-		sistemaActual.registrarRespuesta(respuesta, numeroPregunta, this);
+		if(sistemaActual == null || preguntasPorResponder == null) {
+			System.out.println("No se puede registrar una respuesta de una pregunta porque todavía no se unió a ningún juego.");
+		} else {
+			sistemaActual.registrarRespuesta(respuesta, numeroPregunta, this);
+		}
 	}
 
 	@Override
-	public void notificarRespuestaCorrecta(int numeroPregunta) {
+	public void notificarRespuestaCorrecta(Integer numeroPregunta) {
 		this.preguntasPorResponder.remove(numeroPregunta);
 	}
 	
