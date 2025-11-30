@@ -12,15 +12,15 @@ public abstract class EstadoSistemaPreguntas {
 	}
 	
 	public void unirseAPartida(ObserverJugador jugador){
-		System.out.println("No se puede entrar en la partida porque no está en sala.");
+		System.out.println(jugador.getNombre() + ", no se puede entrar en la partida porque no está en sala.");
 	}
 	
 	public void salirDePartida(ObserverJugador jugador){
-		System.out.println("No se puede salir de la partida porque no está en sala.");
+		System.out.println(jugador.getNombre() + ", no se puede salir de la partida porque no está en sala.");
 	}
 	
 	public void registrarRespuesta(String respuesta, int numeroPregunta, ObserverJugador jugador) {
-		System.out.println("No se puede registar una respuesta en una partida que no está en progreso.");
+		System.out.println(jugador.getNombre() + ", no se puede registar una respuesta en una partida que no está en progreso.");
 	}
 
 	public void notificarInicio() {
@@ -28,11 +28,11 @@ public abstract class EstadoSistemaPreguntas {
 	}
 	
 	public void notificarJugadoresRespuestaCorrecta(int numeroPregunta, ObserverJugador jugador) {
-		System.out.println("No se puede notificar una respuesta correcta en una partida que no está en progreso.");
+		System.out.println(jugador.getNombre() + ", no se puede notificar una respuesta correcta en una partida que no está en progreso.");
 	}
 	
 	public void notificarGanador(ObserverJugador jugador) {
-		System.out.println("No se puede notificar un ganador en una partida que no finalizó.");
+		System.out.println(jugador.getNombre() + ", no se puede notificar un ganador en una partida que no finalizó.");
 	}
 
 	public abstract void pasarSiguienteEstado();

@@ -5,11 +5,15 @@ import java.util.List;
 public interface ObserverJugador {
 	public String getNombre();
 	
+	public boolean tienePreguntasPorResponder();
+	
 	public void notificarInicio(List<Pregunta> preguntas, SistemaPreguntas sistema);
 	
 	public void notificarRespuestaCorrecta(int numeroPregunta);
 	
 	public void notificarRespuestaIncorrecta(int numeroPregunta);
+	
+	public void notificarGanador(ObserverJugador jugador);
 	
 	public void notificarRespuestaCorrectaOtroJugador(int numeroPregunta, ObserverJugador jugador);
 }

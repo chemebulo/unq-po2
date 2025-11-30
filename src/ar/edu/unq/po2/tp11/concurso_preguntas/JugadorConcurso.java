@@ -25,17 +25,18 @@ public class JugadorConcurso implements ObserverJugador {
 		this.sistemaActual = sistema;
 	}
 	
+	public void registrarRespuesta(String respuesta, int numeroPregunta) {
+		sistemaActual.registrarRespuesta(respuesta, numeroPregunta, this);
+	}
+
 	@Override
 	public void notificarRespuestaCorrecta(int numeroPregunta) {
 		this.preguntasPorResponder.remove(numeroPregunta);
-		
-		if(preguntasPorResponder.isEmpty()) {
-			sistemaActual.notificarGanador(this);
-		}
 	}
-
-	public void registrarRespuesta(String respuesta, int numeroPregunta) {
-		sistemaActual.registrarRespuesta(respuesta, numeroPregunta, this);
+	
+	@Override
+	public boolean tienePreguntasPorResponder() {
+		return !preguntasPorResponder.isEmpty();
 	}
 
 	@Override
@@ -44,7 +45,7 @@ public class JugadorConcurso implements ObserverJugador {
 						   + ", el jugador " 
 						   + jugador.getNombre() 
 						   + " respondió correctamente la pregunta: " 
-						   + sistemaActual.getPreguntas().get(numeroPregunta).getPregunta()
+						   + sistemaActual.getPregunta(numeroPregunta)
 						   );
 	}
 
@@ -52,7 +53,12 @@ public class JugadorConcurso implements ObserverJugador {
 	public void notificarRespuestaIncorrecta(int numeroPregunta) {
 		System.out.println(nombre
 							+ ", tu respuesta registrada en la pregunta: "
-						    + sistemaActual.getPreguntas().get(numeroPregunta).getPregunta()
+						    + sistemaActual.getPregunta(numeroPregunta)
 						    + " es incorrecta.");
+	}
+
+	@Override
+	public void notificarGanador(ObserverJugador jugador) {
+		System.out.println("El ganador de la partida es: " + jugador.getNombre());
 	}
 }

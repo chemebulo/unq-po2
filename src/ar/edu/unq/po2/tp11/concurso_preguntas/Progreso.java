@@ -26,15 +26,21 @@ public class Progreso extends EstadoSistemaPreguntas {
 		if(this.esRespuestaCorrecta(respuesta, numeroPregunta)) {
 			jugador.notificarRespuestaCorrecta(numeroPregunta);
 			this.notificarJugadoresRespuestaCorrecta(numeroPregunta, jugador);
+			this.notificarGanadorSiGano(jugador);
 		} else {
 			jugador.notificarRespuestaIncorrecta(numeroPregunta);
 		}
 	}
 	
-	private boolean esRespuestaCorrecta(String respuesta, int numeroPregunta) {
-		return this.getSistema().getPreguntas().get(numeroPregunta).esRespuestaCorrecta(respuesta);
+	private void notificarGanadorSiGano(ObserverJugador jugador) {
+		if(!jugador.tienePreguntasPorResponder()) {
+			this.notificarGanador(jugador);
+		}
 	}
 	
+	private boolean esRespuestaCorrecta(String respuesta, int numeroPregunta) {
+		return this.getSistema().getRespuesta(numeroPregunta).equals(respuesta);
+	}
 	
 	@Override
 	public void notificarJugadoresRespuestaCorrecta(int numeroPregunta, ObserverJugador jugador) {
@@ -44,5 +50,11 @@ public class Progreso extends EstadoSistemaPreguntas {
 		for(ObserverJugador j : jugadores) { 
 			j.notificarRespuestaCorrectaOtroJugador(numeroPregunta, jugador);
 		}
+	}
+	
+	@Override
+	public void notificarGanador(ObserverJugador jugador) {
+		this.pasarSiguienteEstado();
+		this.getSistema().notificarGanador(jugador);
 	}
 }

@@ -45,4 +45,24 @@ public class SistemaPreguntas {
 	public void notificarGanador(ObserverJugador jugador) {
 		estadoActual.notificarGanador(jugador);
 	}
+	
+	public boolean listoParaEmpezar() {
+		return jugadores.size() == 5;
+	}
+
+	public void añadirJugador(ObserverJugador jugador) {
+		this.jugadores.add(jugador);
+	}
+
+	public void quitarJugador(ObserverJugador jugador) {
+		this.jugadores.remove(jugador);
+	}
+	
+	public String getPregunta(int numeroPregunta) {
+		return preguntas.get(numeroPregunta).getPregunta();
+	}
+	
+	public String getRespuesta(int numeroPregunta) {
+		return preguntas.get(numeroPregunta).getRespuesta();
+	}
 }

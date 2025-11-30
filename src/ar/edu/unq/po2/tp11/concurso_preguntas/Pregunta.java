@@ -8,9 +8,9 @@ public class Pregunta {
 		this.pregunta = pregunta;
 		this.respuesta = respuesta;
 	}
-	
-	public boolean esRespuestaCorrecta(String respuestaDada) {
-		return respuesta.equals(respuestaDada);
+
+	public String getRespuesta() {
+		return respuesta;
 	}
 	
 	public String getPregunta() {

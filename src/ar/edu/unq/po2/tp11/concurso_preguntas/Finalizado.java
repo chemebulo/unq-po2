@@ -1,5 +1,8 @@
 package ar.edu.unq.po2.tp11.concurso_preguntas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Finalizado extends EstadoSistemaPreguntas {
 
 	public Finalizado(SistemaPreguntas sistema) {
@@ -8,7 +11,12 @@ public class Finalizado extends EstadoSistemaPreguntas {
 
 	@Override
 	public void notificarGanador(ObserverJugador jugador) {
-		System.out.println("El ganador de la partida es: " + jugador.getNombre());
+		List<ObserverJugador> jugadoresANotificar = new ArrayList<ObserverJugador>(this.getSistema().getJugadores());
+		jugadoresANotificar.remove(jugador);
+		
+		for(ObserverJugador j : jugadoresANotificar) {
+			j.notificarGanador(jugador);
+		}
 	}
 	
 	@Override

@@ -8,24 +8,24 @@ public class Sala extends EstadoSistemaPreguntas {
 
 	@Override
 	public void unirseAPartida(ObserverJugador jugador) {
-		this.getSistema().getJugadores().add(jugador);
-		this.empezarJuegoSiEsPosible();
+		this.getSistema().añadirJugador(jugador);
+		this.empezarPartidaSiEsPosible();
 	}
 	
-	private void empezarJuegoSiEsPosible() {
-		if(getSistema().getJugadores().size() == 5) {
+	private void empezarPartidaSiEsPosible() {
+		if(this.getSistema().listoParaEmpezar()) {
 			this.pasarSiguienteEstado();
 		}
 	}
 
 	@Override
 	public void salirDePartida(ObserverJugador jugador) {
-		getSistema().getJugadores().remove(jugador);
+		this.getSistema().quitarJugador(jugador);
 	}
 
 	@Override
 	public void pasarSiguienteEstado() {
-		getSistema().setEstado(new Progreso(getSistema()));
-		getSistema().notificarInicio();
+		this.getSistema().setEstado(new Progreso(this.getSistema()));
+		this.getSistema().notificarInicio();
 	}
 }
